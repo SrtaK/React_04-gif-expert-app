@@ -5,21 +5,21 @@ export const AddCategory = ({ onNewCategory }) => {
 
   const [ inputValue, setInputValue ] = useState('');
 
-  const handleInputChange = ({target}) => {
+  const handleInputChange = ({ target }) => {
     setInputValue( target.value );
   }
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(inputValue.trim().length <= 1) return
+    if(inputValue.trim().length <= 1) return;
 
     // handleCategories( (categories) => [ inputValue, ...categories ] );
-    onNewCategory(inputValue.trim())
     setInputValue( '' );
+    onNewCategory(inputValue.trim());
   }
 
   return (
-    <form onSubmit={ (event) => handleSubmit(event)}>
+    <form aria-label="form" onSubmit={ (event) => handleSubmit(event)} >
       <input
         type="text"
         placeholder="Buscar gifs"
